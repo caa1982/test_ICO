@@ -26,7 +26,7 @@ contract TwoGetherPrivateInvestment is CappedCrowdsale, Ownable {
         
         token.mint(owner, tokens);
 
-        PrivateInvestmentPurchase(_privateInvestment, tokens)
+        PrivateInvestmentPurchase(_privateInvestment, tokens);
 
     }
 
