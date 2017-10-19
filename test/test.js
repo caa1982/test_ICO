@@ -12,14 +12,14 @@ contract('Crowdsale', accounts => {
   const buyer3 = accounts[3];
   const amount = web3.toWei(1, "ether");
 
-  const startTime = web3.eth.getBlock(web3.eth.blockNumber).timestamp + 3; 
+  const startTime = web3.eth.getBlock(web3.eth.blockNumber).timestamp + 2; 
   const endTime = startTime + (86400 * 48); //48 days
-  const preSaleEnd = startTime + 3; //after 60 sec => propose (86400 * 18)
-  const rate = new web3.BigNumber(1000);
-  const cap = new web3.BigNumber(web3.toWei(3333333, 'ether'));
-  const privateInvestorAllocaion = new web3.BigNumber(web3.toWei(1, 'ether'));
-  const bonus = new web3.BigNumber(20);
-  const preSaleCap = new web3.BigNumber(web3.toWei(20, 'ether'));
+  const preSaleEnd = startTime + 5; //after 5 sec => propose (86400 * 18)
+  const rate = 1000;
+  const cap = web3.toWei(100, "ether");
+  const privateInvestorAllocaion = web3.toWei(1, "ether");
+  const bonus = 20;
+  const preSaleCap = web3.toWei(3, "ether");
   
   beforeEach( () => 
     Crowdsale.new(cap, startTime, endTime, preSaleEnd, bonus, preSaleCap, rate, privateInvestorAllocaion, {from: owner})
@@ -99,7 +99,7 @@ contract('Crowdsale', accounts => {
 
   it("Should buy 1000 tokens bonus excluded and return false for preSalse validity ", (done) => {
     let balance;
-    console.log('waiting 5 seconds');
+    console.log('waiting 6 seconds');
     setTimeout(function() {
       contract.buyTokens.sendTransaction(buyer1, { from: buyer1, value: amount})
       .then( token.balanceOf(buyer1, {from: owner})
@@ -111,7 +111,7 @@ contract('Crowdsale', accounts => {
         assert.equal(result, false, "test was supposed to return false");
       }))
       done();   
-    }, 5000);
+    }, 6000);
   });
 
 });
