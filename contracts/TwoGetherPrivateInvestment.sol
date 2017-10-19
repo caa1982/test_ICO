@@ -8,6 +8,8 @@ contract TwoGetherPrivateInvestment is CappedCrowdsale, Ownable {
     // amount of tokens given to private Investors
     uint256 public totalPrivateInvestments;
 
+    event PrivateInvestmentPurchase(uint256 value, uint256 amount);
+
     function TwoGetherPrivateInvestment (uint256 _privateInvestment){
          
          privateInvestment(_privateInvestment);
@@ -23,6 +25,8 @@ contract TwoGetherPrivateInvestment is CappedCrowdsale, Ownable {
         totalPrivateInvestments = totalPrivateInvestments.add(_privateInvestment);
         
         token.mint(owner, tokens);
+
+        PrivateInvestmentPurchase(_privateInvestment, tokens)
 
     }
 

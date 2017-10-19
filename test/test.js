@@ -13,8 +13,8 @@ contract('Crowdsale', accounts => {
   const amount = web3.toWei(1, "ether");
 
   const startTime = web3.eth.getBlock(web3.eth.blockNumber).timestamp + 2; 
-  const endTime = startTime + (86400 * 48); //48 days
-  const preSaleEnd = startTime + 5; //after 5 sec => propose (86400 * 18)
+  const endTime = startTime + (86400 * 48);
+  const preSaleEnd = startTime + 5; 
   const rate = 1000;
   const cap = web3.toWei(100, "ether");
   const privateInvestorAllocaion = web3.toWei(1, "ether");
