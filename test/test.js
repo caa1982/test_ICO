@@ -9,7 +9,6 @@ contract('Crowdsale', accounts => {
   const owner = accounts[0];
   const buyer1 = accounts[1];
   const buyer2 = accounts[2];
-  const buyer3 = accounts[3];
   const amount = web3.toWei(1, "ether");
 
   const startTime = web3.eth.getBlock(web3.eth.blockNumber).timestamp + 2; 
@@ -97,7 +96,7 @@ contract('Crowdsale', accounts => {
    });
   });
 
-  it("Should buy 1000 tokens bonus excluded and return false for preSalse validity ", (done) => {
+  it("Should buy 1000 tokens bonus excluded and return false for preSale validity ", (done) => {
     let balance;
     console.log('waiting 6 seconds');
     setTimeout(function() {
