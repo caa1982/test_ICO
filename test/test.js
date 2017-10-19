@@ -8,7 +8,6 @@ contract('Crowdsale', accounts => {
   
   const owner = accounts[0];
   const buyer1 = accounts[1];
-  const buyer2 = accounts[2];
   const amount = web3.toWei(1, "ether");
 
   const startTime = web3.eth.getBlock(web3.eth.blockNumber).timestamp + 2; 
