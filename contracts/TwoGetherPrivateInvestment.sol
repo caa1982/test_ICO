@@ -18,11 +18,11 @@ contract TwoGetherPrivateInvestment is CappedCrowdsale, Ownable {
 
     function privateInvestment(uint256 _privateInvestment) onlyOwner public{
         require(_privateInvestment > 0);
+	
+	 weiRaised = weiRaised.add(_privateInvestment);
+        totalPrivateInvestments = totalPrivateInvestments.add(_privateInvestment);
 
         uint256 tokens = _privateInvestment.mul(rate);
-
-        weiRaised = weiRaised.add(_privateInvestment);
-        totalPrivateInvestments = totalPrivateInvestments.add(_privateInvestment);
         
         token.mint(owner, tokens);
 

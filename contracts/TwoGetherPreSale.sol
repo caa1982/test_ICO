@@ -16,9 +16,7 @@ contract TwoGetherPreSale is TwoGetherPrivateInvestment {
 
     // Pre-sale cap
     uint256 public preSaleCap;
-    
-    event BonusTokenPurchase(address indexed purchaser, address indexed beneficiary, uint256 value, uint256 amount);
-    
+
     function TwoGetherPreSale(uint256 _bonus, uint256 _preSaleEnd, uint256 _preSaleCap){
         require(_bonus > 0);
         require(_preSaleEnd > 0);
@@ -56,7 +54,7 @@ contract TwoGetherPreSale is TwoGetherPrivateInvestment {
         }
 
         token.mint(beneficiary, tokens);
-        BonusTokenPurchase(msg.sender, beneficiary, weiAmount, tokens);
+        TokenPurchase(msg.sender, beneficiary, weiAmount, tokens);
 
         forwardFunds();
     }
